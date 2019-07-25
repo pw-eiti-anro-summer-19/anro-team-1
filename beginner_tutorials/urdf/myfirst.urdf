@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<robot name="multipleshapes">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.19 0.19 0.09"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder length="0.08" radius="0.095"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.042"/>
+    </visual>
+  </link>
+<link name="link2">
+    <visual>
+      <geometry>
+        <box size="0.08 0.065 0.24"/>
+      </geometry>
+      <origin rpy="0 0.78535 0" xyz="0.03 0 0.185"/>
+    </visual>
+  </link>
+<link name="link3">
+    <visual>
+      <geometry>
+        <box size="0.24 0.065 0.08"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0 0.298"/>
+    </visual>
+  </link>
+
+
+  <joint name="base_to_link1" type="continuous">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <axis xyz="0 0 1"/>
+    <origin xyz="0 0 0.042" />
+  </joint>
+
+ <joint name="link1_to_link2" type="fixed">
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-1" upper="1" velocity="1.0"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0.026 0 0.00982" />
+  </joint>
+<joint name="link2_to_link3" type="fixed">
+<axis xyz="0 1 0"/>
+    <limit effort="30" lower="-1" upper="1" velocity="1.0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="0.138 0 0.00982" />
+  </joint>
+
+</robot>
+
+
+
