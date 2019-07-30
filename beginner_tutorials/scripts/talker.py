@@ -46,9 +46,9 @@ def talker():
     hz = 10
     rate = rospy.Rate(hz) # 10hz
     d = 0.0
-    theta1 = 1
+    theta1 = 1.5
     theta2 = 1.5
-    theta3 = 0.5
+    theta3 = 1.2
     time = 5
     movement_cal = time * hz
     theta1_new = 0
@@ -69,7 +69,7 @@ def talker():
         rate.sleep()
         d = d+0.1 
         movement_cal = movement_cal - 1
-
+       
 if __name__ == '__main__':
     try:
         talker()
